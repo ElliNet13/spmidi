@@ -29,7 +29,10 @@ class Song:
     return ''.join([random.choice(chars) for _ in range(20)])
 
   def save(self):
-    name = self._generate_save_name()
+    name = input("Enter ID or don't enter anything to generate an ID: ")
+    if name == "":
+    	print("Generating ID")
+    	name = self._generate_save_name()
 
     headers = {
       'accept': '*/*',
