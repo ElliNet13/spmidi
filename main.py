@@ -34,7 +34,7 @@ for track_i, track in enumerate(mid.tracks):
 # Ask user for an emoji for each item in result_instruments
 for instrument in result_instruments:
     emoji = input(f"Please provide an emoji for user {instrument} or empty to use default: ")
-    if not emoji == "":
+    if emoji:
     	s.user_map[emoji] = instrument
 
 # Ask if velocities should be used
