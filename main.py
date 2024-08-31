@@ -12,7 +12,7 @@ result_instruments = []
 s = saving.Song()
 
 # Show instrument choices
-instruments = list(s.user_map.values())
+instruments = list(s.user_map_defaults.values())
 print('\nInstrument options:')
 for instrument_i, instrument in enumerate(instruments):
 	print(f'{instrument_i + 1}: {instrument}')
@@ -30,6 +30,12 @@ for track_i, track in enumerate(mid.tracks):
 
   substitute_i = int(input(f'Instrument for track #{track_i} ("{track_name if track_name is not None else ""}"): ')) - 1
   result_instruments.append(instruments[substitute_i])
+
+# Ask user for an emoji for each item in result_instruments
+for instrument in result_instruments:
+    emoji = input(f"Please provide an emoji for user {instrument} or empty to use default: ")
+    if not emoji == "":
+    	s.user_map[emoji] = instrument
 
 # Ask if velocities should be used
 use_velocities = input('\nUse note velocities? (y/n): ').lower() == 'y'

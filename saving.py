@@ -5,7 +5,7 @@ import json
 class Song:
   def __init__(self):
     self.notes = []
-    self.user_map = {
+    self.user_map_defaults = {
       '🐨': 'piano',
       '🐮': 'strings',
       '🐱': 'marimba',
@@ -14,6 +14,7 @@ class Song:
       '🐶': 'drum-kit',
       '🐸': 'drum-machine',
     }
+    self.user_map = self.user_map_defaults
 
   def set_notes(self, notes):
     self.notes = notes
