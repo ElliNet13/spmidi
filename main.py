@@ -33,9 +33,12 @@ for track_i, track in enumerate(mid.tracks):
 
 # Ask user for an emoji for each item in result_instruments
 for instrument in result_instruments:
-    emoji = input(f"Please provide an emoji for user {instrument} or empty to use default: ")
+    emoji = input(f"Please provide an emoji for user {instrument} or press Enter to use default: ")
     if emoji:
-    	s.user_map[emoji] = instrument
+        s.user_map[emoji] = instrument
+    else:
+        # Assign default emoji if no custom one is provided
+        s.user_map[s.user_map_defaults[instrument]] = instrument
 
 # Ask if velocities should be used
 use_velocities = input('\nUse note velocities? (y/n): ').lower() == 'y'
